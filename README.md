@@ -6,5 +6,5 @@ for the framework used, Express.js
 
 there are several node-modules that must be installed, i.e.
 1. npm install express
-2. npm i express-file upload upload-excel-to-json
+2. npm i express-fileupload convert-excel-to-json
 3. npm i - save del
