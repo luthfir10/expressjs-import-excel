@@ -9,7 +9,8 @@ require('dotenv/config');
 
 
 
-server.use(upload(), bodyParser.json());
+server.use(bodyParser.json());
+server.use(upload());
 
 //Import Routes
 const postsImportExcel = require('./routes/posts');
