@@ -4,8 +4,12 @@ let upload = require("express-fileupload");
 let importExcel = require("convert-excel-to-json");
 let del = require("del");
 const mongoose = require("mongoose");
+const bodyParser = require('body-parser');
 require('dotenv/config');
-server.use(upload());
+
+
+
+server.use(upload(), bodyParser.json());
 
 //Import Routes
 const postsImportExcel = require('./routes/posts');
