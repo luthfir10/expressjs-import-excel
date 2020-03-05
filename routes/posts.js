@@ -32,17 +32,17 @@ router.post("/", async (req, res) => {
         sheets: ["Sheet1"]
       });
       for (var i = 0; result.Sheet1.length > i; i++) {
-        post = new Post({
+        Post({
           nopes: result.Sheet1[i].nopes,
           nm_pes: result.Sheet1[i].nm_pes
-        });
-        post.save();
+        }).save();
+        
       }
-      res.send(siswa);
-      console.log(siswa + " Jumlah data " + siswa.length);
+      
       del(["excel/" + filename]).then(paths => {
         console.log("file " + filename + " sudah di hapus!!");
       });
+      res.send("Upload Sukses..!!");
     }
   });
 
