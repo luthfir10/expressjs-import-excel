@@ -5,13 +5,23 @@ let upload = require("express-fileupload");
 let importExcel = require("convert-excel-to-json");
 let del = require("del");
 
-//GET back all the posts
+//Get back all the posts
 router.get("/", async (req, res) => {
   try {
     const posts = await Post.find();
     res.json(posts);
   } catch (err) {
     res.json({ messafe: err });
+  }
+});
+
+//Specific Get
+router.get('/:postId', async (req, res) =>{
+  try{
+    const post = await Post.findById(req.params.postId);
+    res.json(post);
+  } catch (err) {
+    res.json({message: err});
   }
 });
 
@@ -45,8 +55,30 @@ router.post("/", async (req, res) => {
       res.send("Upload Sukses..!!");
     }
   });
-
-
 });
+
+//Update Data
+router.patch('/:postId', async (req, res) =>{
+  try{
+    const updatePost = await Post.updateOne(
+      { _id: req.params.postId },
+      { $set: { nopes: req.body.nopes, nm_pes: req.body.nm_pes } }
+    );
+    res.json(updatePost);
+  }catch (err){
+    res.json({ message: err });
+  }
+});
+
+//Delete a data
+router.delete('/:postId', async (req, res) =>{
+  try{
+    const removedPost = await Post.remove({ _id: req.params.postId });
+    res.json(removedPost);
+  }catch (err){
+    res.json({message: err});
+  }
+});
+
 
 module.exports = router;

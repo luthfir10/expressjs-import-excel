@@ -11,5 +11,4 @@ const PostSchema = mongoose.Schema({
   }
 });
 
-
-module.exports = mongoose.model('Siswa', PostSchema);
+module.exports = mongoose.model("Siswa", PostSchema);
