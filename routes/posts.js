@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//SUBMIT  a posts
+//Submit a posts
 router.post("/", async (req, res) => {
   let file = req.files.filename;
   let filename = file.name;
@@ -46,18 +46,7 @@ router.post("/", async (req, res) => {
     }
   });
 
-  // const post = new Post({
-  //     nopes : req.body.nopes,
-  //     nm_pes : req.body.nm_pes
-  // });
 
-  // try{
-  //     const savedPost = await post.save();
-  //     res.json(savedPost);
-  // }catch(err){
-
-  //     res.json({message: err});
-  // }
 });
 
 module.exports = router;
